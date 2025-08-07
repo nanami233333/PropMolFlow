@@ -1,7 +1,7 @@
 # PropMolFlow: Property-guided Molecule Generation with Geometry-Complete Flow Matching
 [![arXiv](https://img.shields.io/badge/arXiv-1234.56789-b31b1b.svg?style=flat)](https://arxiv.org/abs/2505.21469)
 
-Code for the paper: [*"PropMolFlow: Property-guided Molecule Generation with Geometry-Complete Flow Matching"*](https://arxiv.org/abs/2505.21469)
+The paper: [*"PropMolFlow: Property-guided Molecule Generation with Geometry-Complete Flow Matching"*](https://arxiv.org/abs/2505.21469) and Demo on an **[interative website](https://propmolflow-website.vercel.app/)**: 
 
 ![Image](overview_page.jpg)
 
@@ -205,8 +205,6 @@ These specific property values for the **out-of-distribution** task  are chosen 
 ## DFT evaluation
 
 To generate the DFT jobs using Gaussian for a generated SDF file, please use the script in `propmolflow/utils/generate_dft_submission.py`
-
-
 
 ## Citation
 
