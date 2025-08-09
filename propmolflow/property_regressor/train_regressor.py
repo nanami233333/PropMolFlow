@@ -115,9 +115,11 @@ def train_gvp_regressor(config_path: str, checkpoint_path: Optional[str] = None)
         config_path: Path to the configuration file.
         checkpoint_path: Path to a checkpoint to resume training from. If None, starts fresh.
     """
+    assert config_path is not None, "Config path must be provided"
+
     with open(config_path) as f:
         config = yaml.safe_load(f)
-
+    
     # Get the property name from config
     property_name = config['dataset']['conditioning']['property']
 
@@ -140,12 +142,6 @@ def train_gvp_regressor(config_path: str, checkpoint_path: Optional[str] = None)
     if checkpoint_path is not None:
         print(f"Loading model from checkpoint: {checkpoint_path}")
         model = GVPRegressorModule.load_from_checkpoint(checkpoint_path)
-        
-        # Update learning rate and other parameters if needed from config
-        model.hparams.learning_rate = config['training']['learning_rate']
-        model.hparams.weight_decay = config['training']['weight_decay']
-        model.hparams.scheduler_patience = config['training']['scheduler_patience']
-        model.hparams.scheduler_factor = config['training']['scheduler_factor']
     else:
         model = GVPRegressorModule(
             model_config=config['model'],
@@ -174,8 +170,8 @@ def train_gvp_regressor(config_path: str, checkpoint_path: Optional[str] = None)
     )
     
     # Train model
-    trainer.fit(model, data_module)
-    
+    trainer.fit(model, data_module, ckpt_path=checkpoint_path)
+
     return model, trainer
 
 if __name__ == "__main__":
