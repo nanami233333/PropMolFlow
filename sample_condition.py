@@ -1,3 +1,4 @@
+import os
 import argparse
 import math
 import numpy as np
@@ -153,6 +154,7 @@ def main():
             print(f"  {metric}: {value}")
     
     # Write molecules to SDF file
+    os.makedirs(os.path.dirname(args.output_file), exist_ok=True)
     sdf_writer = Chem.SDWriter(args.output_file)
     sdf_writer.SetKekulize(False)
     valid_count = 0
