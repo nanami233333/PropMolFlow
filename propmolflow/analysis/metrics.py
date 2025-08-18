@@ -1,20 +1,19 @@
 from typing import List
 from .molecule_builder import SampledMolecule
 from pathlib import Path
-import torch
 from rdkit import Chem
 from collections import Counter
-import wandb
 from propmolflow.utils.divergences import DivergenceCalculator
 from propmolflow.analysis.ff_energy import compute_mmff_energy
 from propmolflow.analysis.reos import REOS
 from propmolflow.analysis.ring_systems import RingSystemCounter, ring_counts_to_df
 
+# Note: the allowed bonds are too flexible to be correct.
 allowed_bonds = {'H': {0: 1, 1: 0, -1: 0},
                  'C': {0: [3, 4], 1: 3, -1: 3},
                  'N': {0: [2, 3], 1: [2, 3, 4], -1: 2},    # In QM9, N+ seems to be present in the form NH+ and NH2+
-                 'O': {0: 2, 1: 3, -1: 1},
-                 'F': {0: 1, -1: 0},
+                 'O': {0: 2, 1: 3, -1: 1},                 # Bond and charge issues are fixed in the rQM9 SDF data and metrics are revised  
+                 'F': {0: 1, -1: 0},                       # Accordingly, please refer to propmolflow_metrics.py for our metrics.
                  'B': 3, 'Al': 3, 'Si': 4,
                  'P': {0: [3, 5], 1: 4},
                  'S': {0: [2, 6], 1: [2, 3], 2: 4, 3: 5, -1: 3},
