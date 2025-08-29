@@ -7,20 +7,20 @@ The paper: [*"PropMolFlow: Property-guided Molecule Generation with Geometry-Com
 ![Image](overview_page.jpg)
 
 ## Environment Setup
+**Please Make Sure Cuda Version >= 12.8 and Already Installed Conda**
 
 Run the following commands in your terminal to set up `propmolflow` (We have tested it on **Nvidia L4 and Blackwell B200** GPUs): 
 ```python
 conda install mamba # if you do not have mamba
 mamba create -n propmolflow python=3.12 nvidia/label/cuda-12.8.1::cuda-toolkit
 mamba activate propmolflow
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cu128
 pip install torch-cluster torch_scatter torch_sparse -f https://data.pyg.org/whl/torch-2.7.0%2Bcu128.html
-pip install torch-geometric
+pip install pytorch-lightning==2.5.2
+pip install networkx==3.1
+pip install einops==0.8.1 rdkit==2025.3.5 py3Dmol==2.5.2 useful-rdkit-utils==0.90
+pip install torchtyping ase wandb
 mamba install -c dglteam/label/th24_cu124 dgl=2.4.0.th24.cu124
-pip install pytorch-lightning 
-pip install einops rdkit numpy wandb py3Dmol useful_rdkit_utils
-pip install torchtyping
-pip install ase
 pip install -e .
 ```
 
@@ -45,7 +45,7 @@ The revised SDF file is also hosted at our HuggingFace [ColabFit rQM9](https://h
 As for csv file contains properties values, it is provided in `data/qm9_raw` directory. 
 
 ## Training 
-**Note**: To train the PropMolFlow generative model, run the following command to process the qm9 dataset:
+**Note**: To train the PropMolFlow generative model, run the following command to process the qm9 dataset first:
 ```bash
 python process_qm9_cond.py --config=configs/with_gaussian/alpha_concatenate_multiply.yaml
 ```
