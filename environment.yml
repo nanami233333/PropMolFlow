@@ -13,7 +13,9 @@ dependencies:
   
   # DGL (Deep Graph Library)
   - dglteam/label/th24_cu124::dgl=2.4.0.th24.cu124
-  
+
+  - pip
+    
   # Pip dependencies
   - pip:
     # PyTorch ecosystem (CUDA 12.8 compatible)
