@@ -26,7 +26,7 @@ pip install -e .
 ```
 Or you can simply install all packages by 
 ```bash
-# make sure clone the repo first, and cd PropMolFlow, so you can use pip install -e .
+# make sure clone the repo first, and cd PropMolFlow, so conda can run "pip install -e ." without error
 conda env create -f environment.yml
 ```
 ## Datasets 
