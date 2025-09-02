@@ -9,6 +9,7 @@ The paper: [*"PropMolFlow: Property-guided Molecule Generation with Geometry-Com
 ## Environment Setup
 **Please Make Sure Cuda Version >= 12.8 and Already Installed Conda**
 
+
 Run the following commands in your terminal to set up `propmolflow` (We have tested it on **Nvidia L4 and Blackwell B200** GPUs): 
 ```python
 conda install mamba # if you do not have mamba
@@ -23,7 +24,11 @@ pip install torchtyping ase wandb
 mamba install -c dglteam/label/th24_cu124 dgl=2.4.0.th24.cu124
 pip install -e .
 ```
-
+Or you can simply install all packages by 
+```bash
+# make sure clone the repo first, and cd PropMolFlow, so you can use pip install -e .
+conda env create -f environment.yml
+```
 ## Datasets 
 
 ### QM9 SDF File
