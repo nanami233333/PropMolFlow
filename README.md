@@ -33,6 +33,7 @@ conda env create -f environment.yml
 
 ### QM9 SDF File
 We provide a corrected version of the QM9 SDF file originally from [DeepChem](https://github.com/deepchem/deepchem), fixing issues such as **invalid bond orders** and **non-zero net charges** in approximately **30,000 molecules**.
+The SDF data fixing pipeline and its documentation is now included in the folder `propmolflow/sdf_data_fix`.
 
 To download the revised SDF file, run:
 ```bash
@@ -44,7 +45,8 @@ After downloading, move the **all_fixed_gdb9.sdf** file to the `data/qm9_raw/` d
 ```bash
 mv all_fixed_gdb9.sdf data/qm9_raw/
 ```
-The revised SDF file is also hosted at our HuggingFace [ColabFit rQM9](https://huggingface.co/datasets/colabfit/rQM9).
+
+**Note**: The Zenodo SDF file was used to train models in the PropMolFlow study. It is based on an earlier version of the data-fix pipeline and still contains approximately 935 problematic molecules, excluding molecules that can perhaps be fixed in the latest pipeline. In contrast, the latest version of the pipeline reduces this number to 303 problematic molecules and is available on our HuggingFace page: [ColabFit rQM9](https://huggingface.co/datasets/colabfit/rQM9).
 
 ### CSV File for Properties
 As for csv file contains properties values, it is provided in `data/qm9_raw` directory. 
@@ -219,7 +221,7 @@ To generate the DFT jobs using Gaussian for a generated SDF file, please use the
 
 ## Citation
 
-If you find this work useful, please consider citing the following paper:
+If you find this work useful, please cite the following paper:
 
 ```bibtex
 @article{zeng2025propmolflow,
