@@ -41,6 +41,7 @@ dependencies:
     - rdkit==2025.3.5
     - py3Dmol==2.5.2
     - useful-rdkit-utils==0.90
+    - posebusters==0.5.0
     - ase
     
     # Experiment tracking
