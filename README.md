@@ -20,7 +20,7 @@ pip install torch-cluster torch_scatter torch_sparse -f https://data.pyg.org/whl
 pip install pytorch-lightning==2.5.2
 pip install networkx==3.1
 pip install einops==0.8.1 rdkit==2025.3.5 py3Dmol==2.5.2 useful-rdkit-utils==0.90
-pip install torchtyping ase wandb
+pip install torchtyping ase wandb posebusters 
 mamba install -c dglteam/label/th24_cu124 dgl=2.4.0.th24.cu124
 pip install -e .
 ```
