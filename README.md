@@ -54,7 +54,7 @@ As for csv file contains properties values, it is provided in `data/qm9_raw` dir
 ## Training 
 **Note**: To train the PropMolFlow generative model, run the following command to process the qm9 dataset first:
 ```bash
-python process_qm9_cond.py --config=configs/with_gaussian/alpha_concatenate_multiply.yaml
+python process_qm9_cond.py --config=configs/with_gaussian_expansion/alpha_concatenate_multiply.yaml
 ```
 
 Then run the **train.py** script. You can either pass a config file, or pass a model checkpoint to continue training.
