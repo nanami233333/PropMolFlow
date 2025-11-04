@@ -219,6 +219,9 @@ These specific property values for the **out-of-distribution** task  are chosen 
 
 To generate the DFT jobs using Gaussian for a generated SDF file, please use the script in `propmolflow/utils/generate_dft_submission.py`
 
+## Use custom datasets
+To use your own dataset, please follow the steps in folder `CustomDataset`.
+
 ## Citation
 
 If you find this work useful, please cite the following paper:
