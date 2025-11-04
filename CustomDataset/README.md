@@ -35,7 +35,13 @@ Create configuration files for your custom dataset:
   - `processed_data_dir:` set to `./data/qme14s` in example case
   - `raw_data_dir:` set to `./data/qme14s_raw` in example case
 
-- `test_qme14s.yaml` in `./propmolflow/property_regressor/configs` for training the regressor model on the QMe14S dataset. Where to modify:
+- `regressor_qme14s.yaml` in `./propmolflow/property_regressor/configs` for training the regressor model on the QMe14S dataset. Where to modify:
+  - `dataset_name:` set to `qme14s` in example case
+  - `processed_data_dir:` set to `./data/qme14s` in example case
+  - `n_atom_types`: set to number of atom types in your dataset, e.g., 14 for QMe14S
+  - `output_dir:` set to desired output directory for model checkpoints
+
+- `test_qme14s.yaml` in `./propmolflow/property_regressor/configs` for testing the regressor model on the QMe14S dataset. Where to modify:
   - `atom_map:` use the atom types present in your dataset
   - `processed_data_dir:` set to `./data/qme14s` in example case
   - `dataset_name:` set to `qme14s` in example case
