@@ -20,7 +20,7 @@ pip install torch-cluster torch_scatter torch_sparse -f https://data.pyg.org/whl
 pip install pytorch-lightning==2.5.2
 pip install networkx==3.1
 pip install einops==0.8.1 rdkit==2025.3.5 py3Dmol==2.5.2 useful-rdkit-utils==0.90
-pip install torchtyping ase wandb
+pip install torchtyping ase wandb posebusters 
 mamba install -c dglteam/label/th24_cu124 dgl=2.4.0.th24.cu124
 pip install -e .
 ```
@@ -54,7 +54,7 @@ As for csv file contains properties values, it is provided in `data/qm9_raw` dir
 ## Training 
 **Note**: To train the PropMolFlow generative model, run the following command to process the qm9 dataset first:
 ```bash
-python process_qm9_cond.py --config=configs/with_gaussian/alpha_concatenate_multiply.yaml
+python process_qm9_cond.py --config=configs/with_gaussian_expansion/alpha_concatenate_multiply.yaml
 ```
 
 Then run the **train.py** script. You can either pass a config file, or pass a model checkpoint to continue training.
@@ -218,6 +218,9 @@ These specific property values for the **out-of-distribution** task  are chosen 
 ## DFT evaluation
 
 To generate the DFT jobs using Gaussian for a generated SDF file, please use the script in `propmolflow/utils/generate_dft_submission.py`
+
+## Use custom datasets
+To use your own dataset, please follow the steps in folder `CustomDataset`.
 
 ## Citation
 
