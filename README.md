@@ -59,7 +59,7 @@ As for csv file contains properties values, it is provided in `data/qm9_raw` dir
 ```bash
 python process_qm9_cond.py --config=configs/with_gaussian_expansion/alpha_concatenate_multiply.yaml
 ```
-We later noticed that this procedure is not perfect as it only removes around 700 molecules that do not pass RDKit sanitization and there are a very small number of remaining problematic molecules (~200 molecules). To get rid of all problematic molecules, you will need the problematic indices, available on the zenodo repo version 2:`https://zenodo.org/records/17693354/files/qm9-sdf-data.zip`.
+We later noticed that this procedure is not perfect as it only removes around 700 molecules that do not pass RDKit sanitization and there are a very small number of remaining problematic molecules (~200 molecules). To get rid of all problematic molecules, you will need the problematic indices, available on the zenodo repo version 2:`https://zenodo.org/records/17693354/files/qm9-sdf-data.zip` or in the `data/qm9_raw` folder.
 
 Then run the **train.py** script. You can either pass a config file, or pass a model checkpoint to continue training.
 ```python
