@@ -7,11 +7,11 @@ The paper: [*"PropMolFlow: Property-guided Molecule Generation with Geometry-Com
 ![Image](overview_page.jpg)
 
 ## Environment Setup
-**Please Make Sure Cuda Version >= 12.8 and Already Installed Conda**
+**Please Make Sure `cuda Version >= 12.8` and you have `conda` installed **
 
 
-Run the following commands in your terminal to set up `propmolflow` (We have tested it on **Nvidia L4 and Blackwell B200** GPUs): 
-```python
+Run the following commands in your terminal to set up `propmolflow` (We have tested the installation on **Nvidia L4 and Blackwell B200** GPUs): 
+```bash
 conda install mamba # if you do not have mamba
 mamba create -n propmolflow python=3.12 nvidia/label/cuda-12.8.1::cuda-toolkit
 mamba activate propmolflow
@@ -55,10 +55,11 @@ mv all_fixed_gdb9.sdf data/qm9_raw/
 As for csv file contains properties values, it is provided in `data/qm9_raw` directory. 
 
 ## Training 
-**Note**: To train the PropMolFlow generative model, run the following command to process the qm9 dataset first:
+**Note**: Before training the PropMolFlow generative model,  preprocess the `all_fixed_gdb9.sdf` or `rQM_v0.sdf` data first, the yaml configuration file can be arbitrary as long as it contains correct raw data paths and filenames:
 ```bash
 python process_qm9_cond.py --config=configs/with_gaussian_expansion/alpha_concatenate_multiply.yaml
 ```
+We later noticed that this procedure is not perfect as it only removes around 700 molecules that do not pass RDKit sanitization and there are a very small number of remaining problematic molecules (~200 molecules). To get rid of all problematic molecules, you will need the problematic indices, available on the zenodo repo version 2:`https://zenodo.org/records/17693354/files/qm9-sdf-data.zip`.
 
 Then run the **train.py** script. You can either pass a config file, or pass a model checkpoint to continue training.
 ```python
