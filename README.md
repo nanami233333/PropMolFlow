@@ -29,6 +29,9 @@ Or you can simply install all packages by
 # make sure clone the repo first, and cd PropMolFlow, so conda can run "pip install -e ." without error
 conda env create -f environment.yml
 ```
+
+**Note:** The original PropMolFlow work was developed using Nvidia A100-SXM4 and 2080Ti graphic cards. However, as we prepared the github repo, University of Florida has completed retired these A100 and 2080Ti graphic cards, and shifted to the L4 and B200 graphic cards.
+
 ## Datasets 
 
 ### QM9 SDF File
@@ -46,7 +49,7 @@ After downloading, move the **all_fixed_gdb9.sdf** file to the `data/qm9_raw/` d
 mv all_fixed_gdb9.sdf data/qm9_raw/
 ```
 
-**Note**: The Zenodo SDF file was used to train models in the PropMolFlow study. It is based on an earlier version of the data-fix pipeline and still contains approximately 935 problematic molecules, excluding molecules that can perhaps be fixed in the latest pipeline. In contrast, the latest version of the pipeline reduces this number to 303 problematic molecules and is available on our HuggingFace page: [ColabFit rQM9](https://huggingface.co/datasets/colabfit/rQM9).
+**Note**: The SDF file `all_fixed_gdb9.sdf` (Zenodo version 1), or equivalently `rQM9_v0.sdf` (Zenodo version 2), was used to train models in the PropMolFlow study. It is based on an earlier version of the data-fix pipeline and contains 935 problematic molecules, excluding many molecules that can be fixed in the latest pipeline, which uses the data correction procedure in the paper. In contrast, the latest version of the pipeline reduces this number to 303 problematic molecules and is available on [Zenodo version 2](https://zenodo.org/records/17693354) and HuggingFace [ColabFit rQM9](https://zenodo.org/records/17693354).
 
 ### CSV File for Properties
 As for csv file contains properties values, it is provided in `data/qm9_raw` directory. 
