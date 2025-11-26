@@ -49,7 +49,7 @@ After downloading, move the **all_fixed_gdb9.sdf** file to the `data/qm9_raw/` d
 mv all_fixed_gdb9.sdf data/qm9_raw/
 ```
 
-**Note**: The SDF file `all_fixed_gdb9.sdf` (Zenodo version 1), or equivalently `rQM9_v0.sdf` (Zenodo version 2), was used to train models in the PropMolFlow study. It is based on an earlier version of the data-fix pipeline and contains 935 problematic molecules, excluding many molecules that can be fixed in the latest pipeline, which uses the data correction procedure in the paper. In contrast, the latest version of the pipeline reduces this number to 303 problematic molecules and is available on [Zenodo version 2](https://zenodo.org/records/17693354) and HuggingFace [ColabFit rQM9](https://zenodo.org/records/17693354).
+**Note**: The SDF file `all_fixed_gdb9.sdf` ([Zenodo version 1](https://zenodo.org/records/15700961)), equivalently released as `rQM9_v0.sdf` ([Zenodo version 3](https://zenodo.org/records/17726328)), was used to train models in the PropMolFlow study. It is based on an earlier version of the data-fix pipeline and contains 935 problematic molecules, many of which can be corrected using the updated pipeline described in the paper supplementary information. In contrast, the latest version of the pipeline reduces this number to 303 problematic molecules and is available on [Zenodo version 3](https://zenodo.org/records/17726328) and HuggingFace [ColabFit rQM9](https://huggingface.co/datasets/colabfit/rQM9). The revised SDF files preserve the original molecule count and ordering to ensure compatibility with the property-value CSV files. Therefore, users should remove the provided problematic indices prior to training to ensure data consistency.
 
 ### CSV File for Properties
 As for csv file contains properties values, it is provided in `data/qm9_raw` directory. 
@@ -59,7 +59,8 @@ As for csv file contains properties values, it is provided in `data/qm9_raw` dir
 ```bash
 python process_qm9_cond.py --config=configs/with_gaussian_expansion/alpha_concatenate_multiply.yaml
 ```
-We later noticed that this procedure is not perfect as it only removes around 700 molecules that do not pass RDKit sanitization and there are a very small number of remaining problematic molecules (~200 molecules). To get rid of all problematic molecules, you will need the problematic indices, available on the zenodo repo version 2:`https://zenodo.org/records/17693354/files/qm9-sdf-data.zip` or in the `data/qm9_raw` folder.
+
+Note: current procedure removes around 700 molecules that do not pass RDKit sanitization and there are however a very small number of remaining problematic molecules (~200 molecules). All unfixed molecule indices are provided in the `problematic_indices_v0.npy` for `rQM_v0.sdf` and `problematic_indices_v1.npy` for `rQM_v1.sdf` files, available on the [zenodo repo version 3](https://zenodo.org/records/17693354/files/qm9-sdf-data.zip) or in the `data/qm9_raw` folder,
 
 Then run the **train.py** script. You can either pass a config file, or pass a model checkpoint to continue training.
 ```python
