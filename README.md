@@ -119,6 +119,10 @@ There is **no need to download** them separately.
 ```bash
 python propmolflow/property_regressor/train_regressor.py --config=propmolflow/property_regressor/configs/regressor_alpha.yaml 
 ```
+If got **ModuleNotFoundError**, then use:
+```bash
+python -m propmolflow.property_regressor.train_regressor --config=propmolflow/property_regressor/configs/regressor_alpha.yaml 
+```
 The trained model will be saved in path `propmolflow/property_regressor/model_output`.
 
 ## Demo
